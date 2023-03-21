@@ -87,20 +87,27 @@
     top: 0;
   }
   to {
-    top: 2rem;
+    top: 6.5rem;
   }
 }
 
-.updateCartNotifiation {
+.notificationContainer {
+  display: flex;
+  max-width: 20rem;
+  margin: 0 auto;
   width: -webkit-fill-available;
-  top: 2rem;
+  justify-content: center;
+}
+
+.updateCartNotifiation {
+  top: 6.5rem;
   height: 3rem;
   font-size: larger;
   font-weight: bold;
   background-color: #4BB543;
   border-radius: 10px;
   position: fixed;
-  margin: 0 1rem;
+  padding: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;

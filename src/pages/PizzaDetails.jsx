@@ -83,11 +83,12 @@ const PizzaDetails = () => {
   return (
     <Helmet title="Product-details">
       {isUpdateNotificationDisplayed && (
-        <div className="updateCartNotifiation">
-          <span>You successfully updated your cart!</span>
+        <div className="notificationContainer">
+          <div className="updateCartNotifiation">
+            <span>You successfully updated your cart!</span>
+          </div>
         </div>
-      )
-      }
+      )}
 
       <CommonSection title={title} />
 
