@@ -146,7 +146,7 @@ const PizzaDetails = () => {
               <div className="extraIngredientsGrid">
                 {(Object.values(ExtraIngredients)).map((ingredient) => {
                   return (
-                    <ExtraIngredient isChecked={extraIngredients.includes(ingredient)}  key={ingredient} onSelect={ingredient => updateExtraIngredients(ingredient)} ingredient={ingredient}></ExtraIngredient>
+                    <ExtraIngredient isChecked={extraIngredients && extraIngredients.includes(ingredient)}  key={ingredient} onSelect={ingredient => updateExtraIngredients(ingredient)} ingredient={ingredient}></ExtraIngredient>
                   )
                 })}
               </div>
