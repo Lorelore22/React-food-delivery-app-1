@@ -14,17 +14,23 @@ const totalQuantity =
   localStorage.getItem("totalQuantity") !== null
     ? JSON.parse(localStorage.getItem("totalQuantity"))
     : 0;
-
-const setItemFunc = (item, totalAmount, totalQuantity) => {
-  localStorage.setItem("cartItems", JSON.stringify(item));
-  localStorage.setItem("totalAmount", JSON.stringify(totalAmount));
-  localStorage.setItem("totalQuantity", JSON.stringify(totalQuantity));
-};
+    
+const shouldNotifyUser = false;
+const notificationMessage = '';
+    
+    const setItemFunc = (item, totalAmount, totalQuantity) => {
+      localStorage.setItem("cartItems", JSON.stringify(item));
+      localStorage.setItem("totalAmount", JSON.stringify(totalAmount));
+      localStorage.setItem("totalQuantity", JSON.stringify(totalQuantity));
+    };
+    
 
 const initialState = {
   cartItems: items,
   totalQuantity: totalQuantity,
   totalAmount: totalAmount,
+  shouldNotifyUser: shouldNotifyUser,
+  notificationMessage: notificationMessage
 };
 
 const cartSlice = createSlice({
@@ -49,15 +55,15 @@ const cartSlice = createSlice({
           price: newItem.price,
           quantity: 1,
           totalPrice: newItem.price,
-          extraIngredients: newItem.extraIngredients
+          extraIngredients: newItem.extraIngredients ? newItem.extraIngredients : []
         });
         state.totalQuantity++;
-
+        state.shouldNotifyUser = true;
+        state.notificationMessage = 'Pizza added to Cart';
       } else if(existingItem && (JSON.stringify(existingItem.extraIngredients) === JSON.stringify(extraIngredients)))  {
         state.totalQuantity++;
         existingItem.quantity++;
       } else {
-
         const value = JSON.parse(localStorage.getItem("cartItems"));
         let index = value.findIndex(s => s.id === existingItem.id);
         const newValue = {
@@ -67,15 +73,17 @@ const cartSlice = createSlice({
         price: existingItem.price,
         quantity: 1,
         totalPrice: existingItem.price,
-        extraIngredients: extraIngredients
+        extraIngredients: extraIngredients ? extraIngredients : []
       }
         state.cartItems.splice(index, 1, newValue); 
         state.totalQuantity = state.cartItems.reduce(
           (total, item) => total + Number(item.quantity),
           0
         );
+        state.shouldNotifyUser = true;
+        state.notificationMessage = 'Cart successfuly updated';
       }
-     
+    
       state.totalAmount = state.cartItems.reduce(
         (total, item) => total + Number(item.price) * Number(item.quantity),
         0
@@ -139,6 +147,10 @@ const cartSlice = createSlice({
         state.totalQuantity
       );
     },
+
+    cancelNotification(state) {
+      state.shouldNotifyUser = false;
+    }
   },
 });
 

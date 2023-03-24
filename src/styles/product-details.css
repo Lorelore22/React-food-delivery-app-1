@@ -82,40 +82,6 @@
   }
 }
 
-@keyframes animation {
-  from {
-    top: 0;
-  }
-  to {
-    top: 6.5rem;
-  }
-}
-
-.notificationContainer {
-  display: flex;
-  max-width: 20rem;
-  margin: 0 auto;
-  width: -webkit-fill-available;
-  justify-content: center;
-}
-
-.updateCartNotifiation {
-  top: 6.5rem;
-  height: 3rem;
-  font-size: larger;
-  font-weight: bold;
-  background-color: #4BB543;
-  border-radius: 10px;
-  position: fixed;
-  padding: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  z-index: 9999;
-  animation: 1s animation;
-}
-
 @media only screen and (max-width: 576px) {
   .product__images {
     display: flex;

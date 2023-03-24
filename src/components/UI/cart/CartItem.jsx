@@ -65,7 +65,7 @@ const CartItem = ({ item, onClose }) => {
                 )
               }
               </div>
-            <div className=" d-flex align-items-center justify-content-between increase__decrease-btn">
+            <div className="d-flex align-items-center justify-content-between increase__decrease-btn">
               <span className="increase__btn" onClick={event => incrementItem(event)}>
                 <i className="ri-add-line"></i>
               </span>
