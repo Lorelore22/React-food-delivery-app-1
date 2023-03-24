@@ -1,9 +1,7 @@
 import React from "react";
 import Helmet from "../components/Helmet/Helmet.js";
 import { Container, Row, Col } from "reactstrap";
-
 import { Link } from "react-router-dom";
-
 import guyImg from "../assets/images/delivery-guy.png";
 import "../styles/hero-section.css";
 

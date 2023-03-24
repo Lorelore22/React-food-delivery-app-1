@@ -9,7 +9,6 @@ import ExtraIngredient from '../components/ExtraIngredient/ExtraIngredient.jsx'
 import { useDispatch } from "react-redux";
 import { cartActions } from "../store/shopping-cart/cartSlice";
 import { useSelector } from "react-redux";
-
 import "../styles/product-details.css";
 import "../styles/product-card.css";
 
@@ -31,7 +30,6 @@ const PizzaDetails = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const [extraIngredients, setExtraIngredients] = useState([]);
-  const [isUpdateNotificationDisplayed, setIsUpdateNotificationDisplayed] = useState(false);
   const product = products.find((product) => product.id === id);
   const cartProducts = useSelector((state) => state.cart.cartItems);
   const [previewImg, setPreviewImg] = useState(product.image01);
@@ -47,14 +45,7 @@ const PizzaDetails = () => {
       setExtraIngredients([]);
     }
   }, [cartProducts, id]);
-
-  
   const addItem = () => {
-    setIsUpdateNotificationDisplayed(true);
-      setTimeout(function(){
-        setIsUpdateNotificationDisplayed(false);
-      },3000)
-    
     dispatch(
       cartActions.addItem({
         id,
@@ -64,7 +55,6 @@ const PizzaDetails = () => {
         extraIngredients
       })
       );
-
     };
     
     useEffect(() => {
@@ -73,22 +63,17 @@ const PizzaDetails = () => {
     }, [product]);
 
     function updateExtraIngredients(ingredient) {
-      if(extraIngredients.includes(ingredient)) {
-        setExtraIngredients(extraIngredients.filter(item => item !== ingredient));
-      } else {
-        setExtraIngredients(previousState => [...previousState, ingredient]);
+      if(extraIngredients) {
+        if(extraIngredients.includes(ingredient)) {
+          setExtraIngredients(extraIngredients.filter(item => item !== ingredient));
+        } else {
+          setExtraIngredients(previousState => [...previousState, ingredient]);
+        }
       }
     }
 
   return (
     <Helmet title="Product-details">
-      {isUpdateNotificationDisplayed && (
-        <div className="notificationContainer">
-          <div className="updateCartNotifiation">
-            <span>You successfully updated your cart!</span>
-          </div>
-        </div>
-      )}
 
       <CommonSection title={title} />
 
