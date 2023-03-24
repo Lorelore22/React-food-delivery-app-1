@@ -31,7 +31,7 @@ const Layout = () => {
         setTimeout(() => {
           setShouldNotifyUser(false);
           dispatch(cartActions.cancelNotification())
-        }, 3000)
+        }, 2000)
       }
     }
 
