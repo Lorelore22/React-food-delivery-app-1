@@ -8,11 +8,14 @@
     border-radius: 20rem;
 }
 
+.extraIngredient > .container:hover{
+  cursor: pointer;
+}
+
 /* The container */
 .container {
   display: block;
   position: relative;
-  cursor: pointer;
   font-size: 22px;
   -webkit-user-select: none;
   -moz-user-select: none;
