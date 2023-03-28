@@ -6,12 +6,15 @@ import "../../../styles/product-card.css";
 
 import { useDispatch } from "react-redux";
 import { cartActions } from "../../../store/shopping-cart/cartSlice";
+import { useSelector } from "react-redux";
 
 import { Link } from "react-router-dom";
 
 const ProductCard = (props) => {
   const { id, title, image01, price, extraIngredients } = props.item;
   const dispatch = useDispatch();
+  const cartProducts = useSelector((state) => state.cart.cartItems);
+  const isDisabled = cartProducts.find(item => item.id === id);
 
   const addToCart = () => {
     dispatch(
@@ -35,7 +38,7 @@ const ProductCard = (props) => {
       </div>
       <div className="d-flex flex-column align-items-center justify-content-between">
         <span className="product__price mb-2">{price} € </span>
-        <button className="addTOCART__btn" onClick={addToCart}>
+        <button className={isDisabled ? "addTOCART__btn__disabled" : "addTOCART__btn"} onClick={addToCart} disabled={isDisabled}>
           Add to Cart
         </button>
       </div>
