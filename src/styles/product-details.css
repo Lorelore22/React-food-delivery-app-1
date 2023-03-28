@@ -12,12 +12,15 @@
   font-size: 2rem;
 }
 
-.extraIngredientsGrid {
-    display: grid;
-    grid-column-gap: 3rem;
-    grid-template-columns: repeat(3, 1fr);
-    justify-content: space-between;
-    margin-top: 3rem;
+.extraIngredients {
+  display: flex;
+  margin-top: 2.5rem;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.extraIngredients > div {
+  margin: 0.5rem 1rem;
 }
 
 .category {
@@ -76,10 +79,6 @@
   .related__Product-title {
     font-size: 1.2rem;
   }
-
-  .extraIngredientsGrid {
-    grid-template-columns: repeat(2, 1fr)
-  }
 }
 
 @media only screen and (max-width: 576px) {
@@ -98,9 +97,5 @@
   .category.mb-5 {
     display: inline-block;
     margin-right: 10px;
-  }
-
-  .extraIngredientsGrid {
-    grid-template-columns: repeat(1, 1fr)
   }
 }

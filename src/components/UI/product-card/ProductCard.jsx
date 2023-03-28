@@ -14,7 +14,7 @@ const ProductCard = (props) => {
   const { id, title, image01, price, extraIngredients } = props.item;
   const dispatch = useDispatch();
   const cartProducts = useSelector((state) => state.cart.cartItems);
-  const isDisabled = cartProducts.find(item => item.id === id);
+  const isDisabled = cartProducts.find((item) => item.id === id);
 
   const addToCart = () => {
     dispatch(
@@ -23,7 +23,7 @@ const ProductCard = (props) => {
         title,
         image01,
         price,
-        extraIngredients
+        extraIngredients,
       })
     );
   };
@@ -38,7 +38,11 @@ const ProductCard = (props) => {
       </div>
       <div className="d-flex flex-column align-items-center justify-content-between">
         <span className="product__price mb-2">{price} € </span>
-        <button className={isDisabled ? "addTOCART__btn__disabled" : "addTOCART__btn"} onClick={addToCart} disabled={isDisabled}>
+        <button
+          className={isDisabled ? "addTOCART__btn__disabled" : "addTOCART__btn"}
+          onClick={addToCart}
+          disabled={isDisabled}
+        >
           Add to Cart
         </button>
       </div>

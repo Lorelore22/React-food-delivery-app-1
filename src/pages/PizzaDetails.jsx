@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import Helmet from "../components/Helmet/Helmet";
 import CommonSection from "../components/UI/common-section/CommonSection";
 import { Container, Row, Col } from "reactstrap";
-import ExtraIngredient from '../components/ExtraIngredient/ExtraIngredient.jsx'
+import ExtraIngredient from "../components/ExtraIngredient/ExtraIngredient.jsx";
 import { useDispatch } from "react-redux";
 import { cartActions } from "../store/shopping-cart/cartSlice";
 import { useSelector } from "react-redux";
@@ -15,23 +15,24 @@ import "../styles/product-card.css";
 import ProductCard from "../components/UI/product-card/ProductCard";
 
 const EXTRAINGREDIENTS = {
-	MUSHROOMS: "Mushrooms",
-	ONION: "Onion",
-	PEPPER: "Pepper",
-	PINAPPLE: "Pinapple", 
-  TUNA: "Tuna", 
-  MEAT: "Meat", 
-  CHEESE: "Cheese", 
-  HOTSAUCE: "Hot Sauce", 
-  CORN: "Corn"
-}
+  MUSHROOMS: "Mushrooms",
+  ONION: "Onion",
+  PEPPER: "Pepper",
+  PINAPPLE: "Pinapple",
+  TUNA: "Tuna",
+  MEAT: "Meat",
+  CHEESE: "Cheese",
+  HOTSAUCE: "Hot Sauce",
+  CORN: "Corn",
+};
 
 const PizzaDetails = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const product = products.find((product) => product.id === id);
   const cartProducts = useSelector((state) => state.cart.cartItems);
-  const extraIngredients = cartProducts.find(element => element.id === id)?.extraIngredients ?? [];
+  const extraIngredients =
+    cartProducts.find((element) => element.id === id)?.extraIngredients ?? [];
   const [previewImg, setPreviewImg] = useState(product.image01);
   const { title, price, category, desc, image01 } = product;
   const relatedProduct = products.filter((item) => category === item.category);
@@ -44,30 +45,28 @@ const PizzaDetails = () => {
         price,
         image01,
       })
-      );
-    };
+    );
+  };
 
-    const updateIngredients = (ingredients) => {
-      dispatch(
-        cartActions.updateIngredients({
-          id,
-          title,
-          price,
-          image01,
-          ingredients
-        })
-        );
-      };
-    
-    useEffect(() => {
-      setPreviewImg(product.image01);
-      window.scrollTo(0, 0);
-    }, [product]);
+  const updateIngredients = (ingredients) => {
+    dispatch(
+      cartActions.updateIngredients({
+        id,
+        title,
+        price,
+        image01,
+        ingredients,
+      })
+    );
+  };
 
-    
+  useEffect(() => {
+    setPreviewImg(product.image01);
+    window.scrollTo(0, 0);
+  }, [product]);
+
   return (
     <Helmet title="Product-details">
-
       <CommonSection title={title} />
 
       <section>
@@ -114,22 +113,29 @@ const PizzaDetails = () => {
                   Category: <span>{category}</span>
                 </p>
 
-              {!cartProducts.find(item => item.id === id) && (
-                <button onClick={addItem} className="addTOCART__btn">
-                  Add to Cart
-                </button>
-              )}
+                {!cartProducts.find((item) => item.id === id) && (
+                  <button onClick={addItem} className="addTOCART__btn">
+                    Add to Cart
+                  </button>
+                )}
               </div>
             </Col>
 
-            {cartProducts.find(item => item.id === id) && (
-              <Col lg='12'>
-                <div className="extraIngredientsGrid">
-                  {(Object.values(EXTRAINGREDIENTS)).map((ingredient) => {
+            {cartProducts.find((item) => item.id === id) && (
+              <Col lg="12">
+                <div className="extraIngredients">
+                  {Object.values(EXTRAINGREDIENTS).map((ingredient) => {
                     return (
-                      <ExtraIngredient isChecked={extraIngredients && extraIngredients.includes(ingredient)} key={ingredient} 
-                      onSelect={ingredient => updateIngredients(ingredient)} ingredient={ingredient}></ExtraIngredient>
-                    )
+                      <ExtraIngredient
+                        isChecked={
+                          extraIngredients &&
+                          extraIngredients.includes(ingredient)
+                        }
+                        key={ingredient}
+                        onSelect={(ingredient) => updateIngredients(ingredient)}
+                        ingredient={ingredient}
+                      ></ExtraIngredient>
+                    );
                   })}
                 </div>
               </Col>

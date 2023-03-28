@@ -24,21 +24,10 @@
   color: #df2020;
 }
 
-.increase__decrease-btn {
-  background: #fde4e4;
-  padding: 2px 5px;
-  border-radius: 5px;
-  width: 8rem;
-}
-
-.increase__btn,
-.decrease__btn {
-  cursor: pointer;
-}
-
 .delete__btn {
   font-size: 1.1rem;
   font-weight: 600;
+  margin: 0;
 }
 
 .cart__item {

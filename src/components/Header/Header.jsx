@@ -22,7 +22,7 @@ const nav__links = [
   {
     display: "Cart",
     path: "/cart",
-  }
+  },
 ];
 
 const Header = () => {
@@ -32,7 +32,7 @@ const Header = () => {
   const dispatch = useDispatch();
 
   const toggleMenu = () => menuRef.current.classList.toggle("show__menu");
-  let navigate = useNavigate(); 
+  let navigate = useNavigate();
 
   const toggleCart = () => {
     dispatch(cartUiActions.toggle());
@@ -57,13 +57,16 @@ const Header = () => {
     <header className="header" ref={headerRef}>
       <Container>
         <div className="nav__wrapper d-flex align-items-center justify-content-between">
-          <div className="logo" onClick={() => navigate('/home')}>
+          <div className="logo" onClick={() => navigate("/home")}>
             <img src={logo} alt="logo" />
             <h5>Tasty Treat</h5>
           </div>
-              {/* ======= menu ======= */}
+          {/* ======= menu ======= */}
           <div className="navigation" ref={menuRef} onClick={toggleMenu}>
-            <div className="menu d-flex align-items-center gap-5"  onClick={(event) => event.stopPropagation()}>
+            <div
+              className="menu d-flex align-items-center gap-5"
+              onClick={(event) => event.stopPropagation()}
+            >
               {nav__links.map((item, index) => (
                 <NavLink
                   to={item.path}
@@ -77,7 +80,6 @@ const Header = () => {
               ))}
             </div>
           </div>
-
 
           {/* ======== nav right icons ========= */}
           <div className="nav__right d-flex align-items-center gap-4">

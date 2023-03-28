@@ -9,7 +9,7 @@ import { cartActions } from "../../../store/shopping-cart/cartSlice";
 
 const CartItem = ({ item, onClose }) => {
   const { id, title, price, image01, quantity, extraIngredients } = item;
-  let navigate = useNavigate(); 
+  let navigate = useNavigate();
 
   const dispatch = useDispatch();
 
@@ -20,7 +20,7 @@ const CartItem = ({ item, onClose }) => {
         title,
         price,
         image01,
-        extraIngredients
+        extraIngredients,
       })
     );
     event.stopPropagation();
@@ -36,13 +36,16 @@ const CartItem = ({ item, onClose }) => {
     event.stopPropagation();
   };
 
-  const handlePizzaSelection = () =>  {
+  const handlePizzaSelection = () => {
     navigate(`/pizzas/${id}`);
-    onClose(); 
-  }
+    onClose();
+  };
 
   return (
-    <ListGroupItem className="border-0 cart__item" onClick={handlePizzaSelection}>
+    <ListGroupItem
+      className="border-0 cart__item"
+      onClick={handlePizzaSelection}
+    >
       <div className="cart__item-info d-flex gap-4">
         <img src={image01} alt="product-img" />
 
@@ -53,30 +56,18 @@ const CartItem = ({ item, onClose }) => {
               {quantity}x <span>${price}</span>
             </p>
             <div className="d-flex flex-column">
-            {
-              extraIngredients !== undefined && (
-                Array.from(extraIngredients).map(value => {
-                  return(
+              {extraIngredients !== undefined &&
+                Array.from(extraIngredients).map((value) => {
+                  return (
                     <span key={value} className="m-0">
                       {value}
                     </span>
-                  )
-                })
-                )
-              }
-              </div>
-            <div className="d-flex align-items-center justify-content-between increase__decrease-btn">
-              <span className="increase__btn" onClick={event => incrementItem(event)}>
-                <i className="ri-add-line"></i>
-              </span>
-              <span className="quantity">{quantity}</span>
-              <span className="decrease__btn" onClick={event => decreaseItem(event)}>
-                <i className="ri-subtract-line"></i>
-              </span>
+                  );
+                })}
             </div>
           </div>
 
-          <span className="delete__btn" onClick={event => deleteItem(event)}>
+          <span className="delete__btn" onClick={(event) => deleteItem(event)}>
             <i className="ri-close-line"></i>
           </span>
         </div>
