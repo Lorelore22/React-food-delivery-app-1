@@ -1,17 +1,17 @@
-.hero__content {
+.homePage__content {
   padding-top: 70px;
 }
 
-.hero__title {
+.homePage__title {
   font-size: 2.5rem;
   line-height: 55px;
 }
 
-.hero__title span {
+.homePage__title span {
   color: #df2020;
 }
 
-.hero__content p {
+.homePage__content p {
   font-size: 1rem;
   line-height: 30px;
   color: #777;
@@ -37,28 +37,28 @@
   text-decoration: none;
 }
 
-.hero__img {
+.homePage__img {
   margin: 40px;
 }
 
 @media only screen and (max-width: 768px) {
-  .hero__content h5 {
+  .homePage__content h5 {
     font-size: 1rem;
   }
 
-  .hero__content p {
+  .homePage__content p {
     font-size: 0.8rem;
     line-height: 25px;
   }
 
-  .hero__title {
+  .homePage__title {
     font-size: 1.5rem;
     line-height: 40px;
   }
 }
 
 @media only screen and (max-width: 576px) {
-  .hero__content {
+  .homePage__content {
     text-align: center;
   }
 
