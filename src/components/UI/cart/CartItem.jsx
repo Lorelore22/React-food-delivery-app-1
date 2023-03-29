@@ -13,24 +13,6 @@ const CartItem = ({ item, onClose }) => {
 
   const dispatch = useDispatch();
 
-  const incrementItem = (event) => {
-    dispatch(
-      cartActions.addItem({
-        id,
-        title,
-        price,
-        image01,
-        extraIngredients,
-      })
-    );
-    event.stopPropagation();
-  };
-
-  const decreaseItem = (event) => {
-    dispatch(cartActions.removeItem(id));
-    event.stopPropagation();
-  };
-
   const deleteItem = (event) => {
     dispatch(cartActions.deleteItem(id));
     event.stopPropagation();
