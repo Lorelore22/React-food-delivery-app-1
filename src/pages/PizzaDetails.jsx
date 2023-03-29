@@ -45,8 +45,8 @@ const PizzaDetails = () => {
         price,
         image01,
       })
-    );
-  };
+      );
+    };
 
   const updateIngredients = (ingredients) => {
     dispatch(
@@ -65,8 +65,10 @@ const PizzaDetails = () => {
     window.scrollTo(0, 0);
   }, [product]);
 
+    
   return (
     <Helmet title="Product-details">
+
       <CommonSection title={title} />
 
       <section>
