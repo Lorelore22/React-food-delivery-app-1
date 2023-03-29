@@ -140,8 +140,7 @@
   position: absolute;
   top: 0.5rem;
   right: 0rem;
-  margin: 0.5rem 0;
-  display: none;
+    display: none;
 }
 
 .header__closeButton span i {
