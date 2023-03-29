@@ -15,6 +15,9 @@ const totalQuantity =
     ? JSON.parse(localStorage.getItem("totalQuantity"))
     : 0;
 
+const shouldNotifyUser = false;
+const notificationMessage = "";
+
 const setItemFunc = (item, totalAmount, totalQuantity) => {
   localStorage.setItem("cartItems", JSON.stringify(item));
   localStorage.setItem("totalAmount", JSON.stringify(totalAmount));
@@ -25,6 +28,8 @@ const initialState = {
   cartItems: items,
   totalQuantity: totalQuantity,
   totalAmount: totalAmount,
+  shouldNotifyUser: shouldNotifyUser,
+  notificationMessage: notificationMessage,
 };
 
 const cartSlice = createSlice({
@@ -35,14 +40,10 @@ const cartSlice = createSlice({
     // =========== add item ============
     addItem(state, action) {
       const newItem = action.payload;
-      const existingItem = state.cartItems.find(
-        (item) => item.id === newItem.id
-      );
-      state.totalQuantity++;
+      const id = action.payload.id;
+      const existingItem = state.cartItems.find((item) => item.id === id);
 
       if (!existingItem) {
-        // ===== note: if you use just redux you should not mute state array instead of clone the state array, but if you use redux toolkit that will not a problem because redux toolkit clone the array behind the scene
-
         state.cartItems.push({
           id: newItem.id,
           title: newItem.title,
@@ -50,18 +51,51 @@ const cartSlice = createSlice({
           price: newItem.price,
           quantity: 1,
           totalPrice: newItem.price,
+          extraIngredients: [],
         });
+        state.totalQuantity++;
+        state.shouldNotifyUser = true;
+        state.notificationMessage =
+          "Pizza added to Cart. You can now choose toppings!";
       } else {
-        existingItem.quantity++;
-        existingItem.totalPrice =
-          Number(existingItem.totalPrice) + Number(newItem.price);
+        state.shouldNotifyUser = true;
+        state.notificationMessage = "This pizza is already in the cart.";
       }
 
       state.totalAmount = state.cartItems.reduce(
         (total, item) => total + Number(item.price) * Number(item.quantity),
-
         0
       );
+
+      setItemFunc(
+        state.cartItems.map((item) => item),
+        state.totalAmount,
+        state.totalQuantity
+      );
+    },
+
+    updateIngredients(state, action) {
+      const id = action.payload.id;
+      const existingItem = state.cartItems.find((item) => item.id === id);
+      if (existingItem.extraIngredients.includes(action.payload.ingredient)) {
+        const indexOfExistingIngredient = existingItem.extraIngredients.indexOf(
+          action.payload.ingredient
+        );
+        if (indexOfExistingIngredient !== -1) {
+          existingItem.extraIngredients.splice(indexOfExistingIngredient, 1);
+        }
+      } else {
+        const index = state.cartItems.indexOf(existingItem);
+        existingItem.extraIngredients = [
+          ...existingItem.extraIngredients,
+          action.payload.ingredient,
+        ];
+        if (index !== -1) {
+          state.cartItems.splice(index, 1, existingItem);
+          state.shouldNotifyUser = true;
+          state.notificationMessage = "Cart updated successfuly.";
+        }
+      }
 
       setItemFunc(
         state.cartItems.map((item) => item),
@@ -117,6 +151,10 @@ const cartSlice = createSlice({
         state.totalAmount,
         state.totalQuantity
       );
+    },
+
+    cancelNotification(state) {
+      state.shouldNotifyUser = false;
     },
   },
 });
