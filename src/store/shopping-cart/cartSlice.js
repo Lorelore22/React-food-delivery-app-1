@@ -77,45 +77,19 @@ const cartSlice = createSlice({
       );
     },
 
-   updateIngredients(state, action) {
-    const id = action.payload.id;
-    const existingItem = state.cartItems.find((item) => item.id === id);
-    if(existingItem.extraIngredients.includes(action.payload.ingredients)) {
-      const indexOfExistingIngredient = existingItem.extraIngredients.indexOf(action.payload.ingredients);
-      if(indexOfExistingIngredient !== -1) {
-        existingItem.extraIngredients.splice(indexOfExistingIngredient, 1);
-      }
-    } else {
-      const index = state.cartItems.indexOf(existingItem);
-      existingItem.extraIngredients = [...existingItem.extraIngredients, action.payload.ingredients]
-      if (index !== -1) {
-          state.cartItems.splice(index, 1, existingItem);
-      }
-    }
-
-      setItemFunc(
-        state.cartItems.map((item) => item),
-        state.totalAmount,
-        state.totalQuantity
-      );
-    },
-
     updateIngredients(state, action) {
       const id = action.payload.id;
       const existingItem = state.cartItems.find((item) => item.id === id);
-      if (existingItem.extraIngredients.includes(action.payload.ingredients)) {
+      if (existingItem.extraIngredients.includes(action.payload.ingredient)) {
         const indexOfExistingIngredient = existingItem.extraIngredients.indexOf(
-          action.payload.ingredients
+          action.payload.ingredient
         );
         if (indexOfExistingIngredient !== -1) {
           existingItem.extraIngredients.splice(indexOfExistingIngredient, 1);
         }
       } else {
         const index = state.cartItems.indexOf(existingItem);
-        existingItem.extraIngredients = [
-          ...existingItem.extraIngredients,
-          action.payload.ingredients,
-        ];
+        existingItem.extraIngredients = [...existingItem.extraIngredients, action.payload.ingredient];
         if (index !== -1) {
           state.cartItems.splice(index, 1, existingItem);
           state.shouldNotifyUser = true;
