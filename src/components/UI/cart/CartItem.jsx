@@ -41,11 +41,6 @@ const CartItem = ({ item, onClose }) => {
     onClose();
   };
 
-  const handlePizzaSelection = () =>  {
-    navigate(`/pizzas/${id}`);
-    onClose(); 
-  }
-
   return (
     <ListGroupItem
       className="border-0 cart__item"
