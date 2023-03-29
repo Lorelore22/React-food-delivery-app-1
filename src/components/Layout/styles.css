@@ -7,16 +7,16 @@
   }
 }
 
-.updateCartNotifiationContainer {
+.updateCartNotificationContainer {
   display: flex;
+  z-index: 99999;
   justify-content: center;
 }
 
-.updateCartNotifiation {
+.updateCartNotification {
   position: fixed;
   max-width: 90%;
   display: flex;
-  z-index: 9999;
   margin: 0 auto;
   top: 3rem;
   width: max-content;
@@ -32,19 +32,19 @@
   animation: 1s animation;
 }
 
-.updateCartNotifiation > span {
+.updateCartNotification > span {
   word-wrap: unset;
   word-break: break-word;
 }
 
 @media only screen and (max-width: 800px) {
-  .updateCartNotifiation {
+  .updateCartNotification {
     margin: 0 1rem;
   }
 }
 
 @media only screen and (min-width: 801px) {
-  .updateCartNotifiation {
+  .updateCartNotification {
     margin: 0 30%;
   }
 }

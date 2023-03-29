@@ -37,18 +37,19 @@ const CartItem = ({ item, onClose }) => {
             <p className=" d-flex align-items-center gap-5 cart__product-price">
               {quantity}x <span>${price}</span>
             </p>
-            <div className=" d-flex align-items-center justify-content-between increase__decrease-btn">
-              <span className="increase__btn" onClick={incrementItem}>
-                <i className="ri-add-line"></i>
-              </span>
-              <span className="quantity">{quantity}</span>
-              <span className="decrease__btn" onClick={decreaseItem}>
-                <i className="ri-subtract-line"></i>
-              </span>
+            <div className="d-flex flex-column">
+              {extraIngredients !== undefined &&
+                Array.from(extraIngredients).map((value) => {
+                  return (
+                    <span key={value} className="m-0">
+                      {value}
+                    </span>
+                  );
+                })}
             </div>
           </div>
 
-          <span className="delete__btn" onClick={deleteItem}>
+          <span className="delete__btn" onClick={(event) => deleteItem(event)}>
             <i className="ri-close-line"></i>
           </span>
         </div>

@@ -5,14 +5,6 @@
   top: 0;
 }
 
-@keyframes animation {
-  from {
-    top: -100px;
-  }
-  to {
-    top: 0px;
-  }
-}
 
 .header__shrink {
   position: sticky;
@@ -21,8 +13,6 @@
   background: #fff;
   z-index: 99999;
   box-shadow: 5px 5px 15px -5px #d7d6d6;
-  animation-name: animation;
-  animation-duration: 0.5s;
 }
 
 .logo {
@@ -178,6 +168,9 @@
 @media only screen and (max-width: 480px) {
   .menu {
     width: 100%;
+  } 
+  .header__closeButton {
+    display: block;
   }
 }
 

@@ -36,9 +36,9 @@ const Layout = () => {
   return (
     <div className="d-flex flex-column vh-100 justify-content-between">
       <Header />
-      {shouldNotifyUser && (
-        <div className="updateCartNotifiationContainer">
-          <div className="updateCartNotifiation">
+      {shouldNotifyUser && ( 
+        <div className="updateCartNotificationContainer">
+          <div className="updateCartNotification">
             <span>{cartNotificationMessage}</span>
           </div>
         </div>
@@ -48,12 +48,6 @@ const Layout = () => {
         <Routes />
       </div>
       <Footer />
-      <Footer />
-      <Footer />
-      <Footer />
-      <Footer />
-      <Footer />
-
     </div>
   );
 };
