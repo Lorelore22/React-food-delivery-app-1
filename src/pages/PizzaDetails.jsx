@@ -31,11 +31,13 @@ const PizzaDetails = () => {
   const dispatch = useDispatch();
   const product = products.find((product) => product.id === id);
   const cartProducts = useSelector((state) => state.cart.cartItems);
-  const extraIngredients = cartProducts.find(element => element.id === id)?.extraIngredients;
+  const extraIngredients = cartProducts.find(
+    (element) => element.id === id
+  )?.extraIngredients;
   const [previewImg, setPreviewImg] = useState(product.image01);
   const { title, price, category, desc, image01 } = product;
   const relatedProduct = products.filter((item) => category === item.category);
-  
+
   const addItem = () => {
     dispatch(
       cartActions.addItem({
@@ -44,8 +46,8 @@ const PizzaDetails = () => {
         price,
         image01,
       })
-      );
-    };
+    );
+  };
 
   const updateIngredients = (ingredient) => {
     dispatch(
@@ -64,7 +66,6 @@ const PizzaDetails = () => {
     window.scrollTo(0, 0);
   }, [product]);
 
-    
   return (
     <Helmet title="Product-details">
       <CommonSection title={title} />
@@ -126,7 +127,10 @@ const PizzaDetails = () => {
                   {Object.values(EXTRAINGREDIENTS).map((ingredient) => {
                     return (
                       <ExtraIngredient
-                        isChecked={extraIngredients && extraIngredients.includes(ingredient)}
+                        isChecked={
+                          extraIngredients &&
+                          extraIngredients.includes(ingredient)
+                        }
                         key={ingredient}
                         onSelect={(ingredient) => updateIngredients(ingredient)}
                         ingredient={ingredient}

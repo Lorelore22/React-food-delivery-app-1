@@ -36,7 +36,6 @@ const cartSlice = createSlice({
   name: "cart",
   initialState,
 
-  
   reducers: {
     // =========== add item ============
     addItem(state, action) {
@@ -44,7 +43,6 @@ const cartSlice = createSlice({
       const id = action.payload.id;
       const existingItem = state.cartItems.find((item) => item.id === id);
 
-      
       if (!existingItem) {
         state.cartItems.push({
           id: newItem.id,
@@ -63,12 +61,11 @@ const cartSlice = createSlice({
         state.shouldNotifyUser = true;
         state.notificationMessage = "This pizza is already in the cart.";
       }
-    
+
       state.totalAmount = state.cartItems.reduce(
         (total, item) => total + Number(item.price) * Number(item.quantity),
         0
       );
-
 
       setItemFunc(
         state.cartItems.map((item) => item),
@@ -89,7 +86,10 @@ const cartSlice = createSlice({
         }
       } else {
         const index = state.cartItems.indexOf(existingItem);
-        existingItem.extraIngredients = [...existingItem.extraIngredients, action.payload.ingredient];
+        existingItem.extraIngredients = [
+          ...existingItem.extraIngredients,
+          action.payload.ingredient,
+        ];
         if (index !== -1) {
           state.cartItems.splice(index, 1, existingItem);
           state.shouldNotifyUser = true;
