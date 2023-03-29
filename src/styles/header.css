@@ -5,6 +5,14 @@
   top: 0;
 }
 
+@keyframes headerAnimation {
+  from {
+    top: -100px;
+  }
+  to {
+    top: 0px;
+  }
+}
 
 .header__shrink {
   position: sticky;
@@ -12,6 +20,8 @@
   left: 0;
   background: #fff;
   z-index: 99999;
+  animation-name: headerAnimation;
+  animation-duration: 1s;
   box-shadow: 5px 5px 15px -5px #d7d6d6;
 }
 
@@ -83,7 +93,6 @@
   }
   .logo h5 {
     font-size: 0.8rem;
-    margin-top: -15px;
   }
 
   .navigation {
