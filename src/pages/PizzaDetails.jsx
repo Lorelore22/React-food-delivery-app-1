@@ -72,30 +72,6 @@ const PizzaDetails = () => {
       <section>
         <Container>
           <Row>
-            <Col lg="2" md="2">
-              <div className="product__images">
-                <div
-                  className="img__item mb-3"
-                  onClick={() => setPreviewImg(product.image01)}
-                >
-                  <img src={product.image01} alt="" className="w-50" />
-                </div>
-                <div
-                  className="img__item mb-3"
-                  onClick={() => setPreviewImg(product.image02)}
-                >
-                  <img src={product.image02} alt="" className="w-50" />
-                </div>
-
-                <div
-                  className="img__item"
-                  onClick={() => setPreviewImg(product.image03)}
-                >
-                  <img src={product.image03} alt="" className="w-50" />
-                </div>
-              </div>
-            </Col>
-
             <Col lg="4" md="4">
               <div className="product__main-img">
                 <img src={previewImg} alt="" className="w-100" />
