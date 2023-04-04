@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import { Container } from "reactstrap";
 import logo from "../../assets/images/res-logo.png";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
 import { cartUiActions } from "../../store/shopping-cart/cartUiSlice";
@@ -93,7 +93,7 @@ const Header = () => {
               <i className="ri-shopping-basket-line"></i>
               <span className="cart__badge">{totalQuantity}</span>
             </span>
-            
+
             <span className="mobile__menu" onClick={toggleMenu}>
               <i className="ri-menu-line"></i>
             </span>
