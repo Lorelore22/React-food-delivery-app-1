@@ -1,171 +1,178 @@
 // all images imported from images directory
-// import product_01_image_01 from "../images/product_01.jpg";
-// import product_01_image_02 from "../images/product_01.1.jpg";
-// import product_01_image_03 from "../images/product_01.3.jpg";
-
-import product_02_image_01 from "../images/product_2.1.jpg";
-import product_02_image_02 from "../images/product_2.2.jpg";
-import product_02_image_03 from "../images/product_2.3.jpg";
-
-import product_03_image_01 from "../images/product_3.1.jpg";
-import product_03_image_02 from "../images/product_3.2.jpg";
-import product_03_image_03 from "../images/product_3.3.jpg";
-
-import product_04_image_01 from "../images/product_4.1.jpg";
-import product_04_image_02 from "../images/product_4.2.jpg";
-import product_04_image_03 from "../images/product_4.3.png";
-
-// import product_05_image_01 from "../images/product_04.jpg";
-// import product_05_image_02 from "../images/product_08.jpg";
-// import product_05_image_03 from "../images/product_09.jpg";
-
-// import product_06_image_01 from "../images/bread(1).png";
-// import product_06_image_02 from "../images/bread(2).png";
-// import product_06_image_03 from "../images/bread(3).png";
+import margherita from "../images/margherita.jpg";
+import salami from "../images/salami.png";
+import funghi from "../images/funghi.jpg";
+import prosciutto from "../images/prosciutto.png";
+import hawaii from "../images/hawaii.png";
+import pepperoni from "../images/pepperoni.jpg";
+import capricciosa from "../images/capricciosa.png";
+import quattro_formaggi from "../images/quattro_formaggi.png";
+import tonno from "../images/tonno.png";
+import vegetarian from "../images/vegetarian.jpg";
+import diavola from "../images/diavola.png";
+import frutti_di_mare from "../images/frutti_di_mare.png";
+import napoli from "../images/napoli.png";
+import bbq_chicken from "../images/bbq_chicken.png";
+import gorgonzola from "../images/gorgonzola.png";
+import rucola from "../images/rucola.jpg";
+import salsiccia from "../images/salsiccia.png";
+import caprese from "../images/caprese.png";
+import vegan from "../images/vegan.png";
 
 const products = [
-  // {
-  //   id: "01",
-  //   title: "Chicken Burger",
-  //   price: 24.0,
-  //   image01: product_01_image_01,
-  //   image02: product_01_image_02,
-  //   image03: product_01_image_03,
-  //   category: "Burger",
-
-  //   desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta ad et est, fugiat repudiandae neque illo delectus commodi magnam explicabo autem voluptates eaque velit vero facere mollitia. Placeat rem, molestiae error obcaecati enim doloribus impedit aliquam, maiores qui minus neque. ",
-  // },
-
+  {
+    id: "01",
+    title: "Margherita",
+    price: 9.99,
+    image01: margherita,
+    category: "Pizza",
+    desc: "The classic pizza with tomato sauce, mozzarella cheese and basil leaves.",
+  },
   {
     id: "02",
-    title: "Vegetarian Pizza",
-    price: 115.0,
-    image01: product_02_image_01,
-    image02: product_02_image_02,
-    image03: product_02_image_03,
+    title: "Salami",
+    price: 11.99,
+    image01: salami,
     category: "Pizza",
-
-    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta ad et est, fugiat repudiandae neque illo delectus commodi magnam explicabo autem voluptates eaque velit vero facere mollitia. Placeat rem, molestiae error obcaecati enim doloribus impedit aliquam, maiores qui minus neque.",
+    desc: "Tomato sauce, mozzarella cheese, and spicy Italian salami.",
   },
-
   {
     id: "03",
-    title: "Double Cheese Margherita",
-    price: 110.0,
-    image01: product_03_image_01,
-    image02: product_03_image_02,
-    image03: product_03_image_03,
+    title: "Funghi",
+    price: 10.99,
+    image01: funghi,
     category: "Pizza",
-
-    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta ad et est, fugiat repudiandae neque illo delectus commodi magnam explicabo autem voluptates eaque velit vero facere mollitia. Placeat rem, molestiae error obcaecati enim doloribus impedit aliquam, maiores qui minus neque.",
+    desc: "Tomato sauce, mozzarella cheese, and fresh mushrooms.",
   },
-
   {
     id: "04",
-    title: "Maxican Green Wave",
-    price: 110.0,
-    image01: product_04_image_01,
-    image02: product_04_image_02,
-    image03: product_04_image_03,
+    title: "Prosciutto",
+    price: 12.99,
+    image01: prosciutto,
     category: "Pizza",
-
-    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta ad et est, fugiat repudiandae neque illo delectus commodi magnam explicabo autem voluptates eaque velit vero facere mollitia. Placeat rem, molestiae error obcaecati enim doloribus impedit aliquam, maiores qui minus neque.",
+    desc: "Tomato sauce, mozzarella cheese, and Italian cured ham.",
   },
-
-  // {
-  //   id: "05",
-  //   title: "Cheese Burger",
-  //   price: 24.0,
-  //   image01: product_05_image_01,
-  //   image02: product_05_image_02,
-  //   image03: product_05_image_03,
-  //   category: "Burger",
-
-  //   desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta ad et est, fugiat repudiandae neque illo delectus commodi magnam explicabo autem voluptates eaque velit vero facere mollitia. Placeat rem, molestiae error obcaecati enim doloribus impedit aliquam, maiores qui minus neque.",
-  // },
-  // {
-  //   id: "06",
-  //   title: "Royal Cheese Burger",
-  //   price: 24.0,
-  //   image01: product_01_image_01,
-  //   image02: product_01_image_02,
-  //   image03: product_01_image_03,
-  //   category: "Burger",
-
-  //   desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta ad et est, fugiat repudiandae neque illo delectus commodi magnam explicabo autem voluptates eaque velit vero facere mollitia. Placeat rem, molestiae error obcaecati enim doloribus impedit aliquam, maiores qui minus neque.",
-  // },
-
+  {
+    id: "05",
+    title: "Hawaii",
+    price: 11.99,
+    image01: hawaii,
+    category: "Pizza",
+    desc: "Tomato sauce, mozzarella cheese, ham, and pineapple.",
+  },
+  {
+    id: "06",
+    title: "Pepperoni",
+    price: 12.99,
+    image01: pepperoni,
+    category: "Pizza",
+    desc: "Tomato sauce, mozzarella cheese, and spicy pepperoni.",
+  },
   {
     id: "07",
-    title: "Seafood Pizza",
-    price: 115.0,
-    image01: product_02_image_02,
-    image02: product_02_image_01,
-    image03: product_02_image_03,
+    title: "Capricciosa",
+    price: 10.99,
+    image01: capricciosa,
     category: "Pizza",
-
-    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta ad et est, fugiat repudiandae neque illo delectus commodi magnam explicabo autem voluptates eaque velit vero facere mollitia. Placeat rem, molestiae error obcaecati enim doloribus impedit aliquam, maiores qui minus neque.",
+    desc: "Tomato sauce, mozzarella cheese, ham, fresh mushrooms, and black olives.",
   },
-
   {
     id: "08",
-    title: "Thin Cheese Pizza",
-    price: 110.0,
-    image01: product_03_image_02,
-    image02: product_03_image_01,
-    image03: product_03_image_03,
+    title: "Quattro Formaggi",
+    price: 12.99,
+    image01: quattro_formaggi,
     category: "Pizza",
-
-    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta ad et est, fugiat repudiandae neque illo delectus commodi magnam explicabo autem voluptates eaque velit vero facere mollitia. Placeat rem, molestiae error obcaecati enim doloribus impedit aliquam, maiores qui minus neque.",
+    desc: "Tomato sauce and a blend of four cheeses: mozzarella, gorgonzola, parmesan, and fontina.",
+  },
+  {
+    id: "09",
+    title: "Tonno",
+    price: 11.99,
+    image01: tonno,
+    category: "Pizza",
+    desc: "Tomato sauce, mozzarella cheese, tuna, and red onions.",
+  },
+  {
+    id: "10",
+    title: "Vegetarian",
+    price: 10.99,
+    image01: vegetarian,
+    category: "Pizza",
+    desc: "Tomato sauce, mozzarella cheese, fresh mushrooms, green peppers, onions, and black olives.",
   },
 
   {
-    id: "09",
-    title: "Pizza With Mushroom",
-    price: 110.0,
-    image01: product_04_image_02,
-    image02: product_04_image_01,
-    image03: product_04_image_03,
+    id: "11",
+    title: "Diavola",
+    price: 12.99,
+    image01: diavola,
     category: "Pizza",
-
-    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta ad et est, fugiat repudiandae neque illo delectus commodi magnam explicabo autem voluptates eaque velit vero facere mollitia. Placeat rem, molestiae error obcaecati enim doloribus impedit aliquam, maiores qui minus neque.",
+    desc: "Tomato sauce, mozzarella cheese, spicy salami, and red chili pepper.",
   },
-
-  // {
-  //   id: "10",
-  //   title: "Classic Hamburger",
-  //   price: 24.0,
-  //   image01: product_05_image_02,
-  //   image02: product_05_image_01,
-  //   image03: product_05_image_03,
-  //   category: "Burger",
-
-  //   desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta ad et est, fugiat repudiandae neque illo delectus commodi magnam explicabo autem voluptates eaque velit vero facere mollitia. Placeat rem, molestiae error obcaecati enim doloribus impedit aliquam, maiores qui minus neque.",
-  // },
-
-  // {
-  //   id: "11",
-  //   title: "Crunchy Bread ",
-  //   price: 35.0,
-  //   image01: product_06_image_01,
-  //   image02: product_06_image_02,
-  //   image03: product_06_image_03,
-  //   category: "Bread",
-
-  //   desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta ad et est, fugiat repudiandae neque illo delectus commodi magnam explicabo autem voluptates eaque velit vero facere mollitia. Placeat rem, molestiae error obcaecati enim doloribus impedit aliquam, maiores qui minus neque.",
-  // },
-
-  // {
-  //   id: "13",
-  //   title: "Loaf Bread ",
-  //   price: 35.0,
-  //   image01: product_06_image_03,
-  //   image02: product_06_image_02,
-  //   image03: product_06_image_03,
-  //   category: "Bread",
-
-  //   desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta ad et est, fugiat repudiandae neque illo delectus commodi magnam explicabo autem voluptates eaque velit vero facere mollitia. Placeat rem, molestiae error obcaecati enim doloribus impedit aliquam, maiores qui minus neque.",
-  // },
+  {
+    id: "12",
+    title: "Frutti di Mare",
+    price: 14.99,
+    image01: frutti_di_mare,
+    category: "Pizza",
+    desc: "Tomato sauce, mozzarella cheese, mixed seafood, and parsley.",
+  },
+  {
+    id: "13",
+    title: "Napoli",
+    price: 11.99,
+    image01: napoli,
+    category: "Pizza",
+    desc: "Tomato sauce, mozzarella cheese, anchovies, and black olives.",
+  },
+  {
+    id: "14",
+    title: "BBQ Chicken",
+    price: 13.99,
+    image01: bbq_chicken,
+    category: "Pizza",
+    desc: "BBQ sauce, mozzarella cheese, chicken, and red onions.",
+  },
+  {
+    id: "15",
+    title: "Gorgonzola",
+    price: 12.99,
+    image01: gorgonzola,
+    category: "Pizza",
+    desc: "Tomato sauce, mozzarella cheese, gorgonzola cheese, and walnuts.",
+  },
+  {
+    id: "17",
+    title: "Rucola",
+    price: 12.99,
+    image01: rucola,
+    category: "Pizza",
+    desc: "Tomato sauce, mozzarella cheese, prosciutto, and fresh arugula.",
+  },
+  {
+    id: "18",
+    title: "Salsiccia",
+    price: 13.99,
+    image01: salsiccia,
+    category: "Pizza",
+    desc: "Tomato sauce, mozzarella cheese, Italian sausage, and black olives.",
+  },
+  {
+    id: "19",
+    title: "Caprese",
+    price: 13.99,
+    image01: caprese,
+    category: "Pizza",
+    desc: "Tomato sauce, fresh mozzarella, cherry tomatoes, and basil leaves.",
+  },
+  {
+    id: "20",
+    title: "Vegan",
+    price: 10.99,
+    image01: vegan,
+    category: "Pizza",
+    desc: "Tomato sauce, fresh mozzarella, cherry tomatoes, and basil leaves.",
+  },
 ];
 
 export default products;
